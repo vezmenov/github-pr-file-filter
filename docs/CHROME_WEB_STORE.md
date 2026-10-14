@@ -1,6 +1,12 @@
 # Chrome Web Store publishing
 
-This document contains prepared listing text and the release checklist. It does not mean that the extension has been submitted, approved, or published. Confirm the actual status in the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
+This document contains listing text, the release checklist, and a dated submission status.
+
+## Submission status
+
+As of **October 14, 2026 (Europe/Moscow)**, version **1.1.0** has been submitted to Chrome Web Store and is **pending review**. Submission was confirmed by the publisher console. Automatic publication after approval is enabled. This status does not establish approval or a live store listing; the installation link will be added once publication is confirmed.
+
+The source code and extension ZIP are already public in [GitHub release v1.1.0](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0).
 
 ## Listing fields
 
