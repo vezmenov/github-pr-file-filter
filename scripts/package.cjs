@@ -23,7 +23,7 @@ function listFiles(directory, prefix = '') {
 }
 
 const files = listFiles(source);
-const output = path.join(root, 'dist', `fukk-specs-${manifest.version}.zip`);
+const output = path.join(root, 'dist', `github-pr-file-filter-${manifest.version}.zip`);
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.rmSync(output, { force: true });
 execFileSync('zip', ['-q', '-X', output, ...files.map(file => `./${file}`)], { cwd: source, stdio: 'inherit' });

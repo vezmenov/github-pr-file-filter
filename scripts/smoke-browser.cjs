@@ -8,7 +8,7 @@ const {chromium} = require('playwright');
 (async () => {
   const root = path.resolve(__dirname, '..');
   const extension = path.join(root, 'extension');
-  const profile = await fs.mkdtemp(path.join(os.tmpdir(), 'fukk-specs-chromium-'));
+  const profile = await fs.mkdtemp(path.join(os.tmpdir(), 'github-pr-file-filter-chromium-'));
   let context;
   try {
     context = await chromium.launchPersistentContext(profile, {
@@ -22,7 +22,7 @@ const {chromium} = require('playwright');
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('https://github.com/owner/repo/pull/1/changes');
     await page.getByRole('button', {name: 'Filter options'}).click();
-    const toggle = page.locator('[data-fukk-specs-toggle]');
+    const toggle = page.locator('[data-github-pr-file-filter-toggle]');
     await toggle.waitFor();
     assert.equal(await toggle.getAttribute('aria-checked'), 'false');
     await toggle.click();
@@ -45,7 +45,7 @@ const {chromium} = require('playwright');
     await other.goto('https://github.com/owner/repo/pull/2/files');
     await other.locator('[id="src/app/billing.service.spec.ts"]').waitFor({state: 'hidden'});
     await other.getByRole('button', {name: 'Filter options'}).click();
-    await other.locator('[data-fukk-specs-toggle]').click();
+    await other.locator('[data-github-pr-file-filter-toggle]').click();
     await test.waitFor({state: 'visible'}); // Real storage.onChanged in the first tab.
     await page.locator('#diff-test-wrapper').waitFor({state: 'visible'});
     await other.close();
@@ -58,7 +58,7 @@ const {chromium} = require('playwright');
     const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker');
     const extensionId = new URL(worker.url()).host;
     const optionsPromise = context.waitForEvent('page');
-    await page.locator('[data-fukk-specs-settings]').click();
+    await page.locator('[data-github-pr-file-filter-settings]').click();
     const options = await optionsPromise;
     options.on('pageerror', error => errors.push(error.message));
     await options.waitForURL(`chrome-extension://${extensionId}/options.html`);

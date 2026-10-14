@@ -242,5 +242,5 @@
     return settings === DEFAULT_SETTINGS ? defaultMatcher(path) : createMatcher(settings, true)(path);
   }
 
-  globalThis.FukkSpecs = Object.freeze({ PRESETS, DEFAULT_SETTINGS, normalizeSettings, validateSettings, createMatcher, isTestFile });
+  globalThis.GitHubPrFileFilter = Object.freeze({ PRESETS, DEFAULT_SETTINGS, normalizeSettings, validateSettings, createMatcher, isTestFile });
 })();

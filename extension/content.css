@@ -1,6 +1,6 @@
-[data-fukk-specs-hidden] { display: none !important; }
+[data-github-pr-file-filter-hidden] { display: none !important; }
 
-.fukk-specs-option {
+.github-pr-file-filter-option {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -15,20 +15,20 @@
   text-align: left;
   cursor: pointer;
 }
-.fukk-specs-option:hover, .fukk-specs-option:focus-visible {
+.github-pr-file-filter-option:hover, .github-pr-file-filter-option:focus-visible {
   background: var(--control-transparent-bgColor-hover, var(--color-action-list-item-default-hover-bg, #80808020));
 }
-.fukk-specs-option:focus-visible, .fukk-specs-fallback:focus-visible {
+.github-pr-file-filter-option:focus-visible, .github-pr-file-filter-fallback:focus-visible {
   outline: 2px solid var(--focus-outlineColor, #0969da);
   outline-offset: -2px;
 }
-.fukk-specs-check { width: 16px; flex-shrink: 0; }
-.fukk-specs-option[aria-checked="false"] .fukk-specs-check { visibility: hidden; }
-.fukk-specs-separator {
+.github-pr-file-filter-check { width: 16px; flex-shrink: 0; }
+.github-pr-file-filter-option[aria-checked="false"] .github-pr-file-filter-check { visibility: hidden; }
+.github-pr-file-filter-separator {
   margin: 4px 0;
   border-top: 1px solid var(--borderColor-default, var(--color-border-default, #80808040));
 }
-.fukk-specs-fallback {
+.github-pr-file-filter-fallback {
   margin-left: 6px;
   padding: 5px 8px;
   border: 1px solid var(--borderColor-default, #80808040);
@@ -40,6 +40,6 @@
   white-space: nowrap;
   cursor: pointer;
 }
-.fukk-specs-fallback[aria-pressed="true"] { border-color: var(--borderColor-accent-emphasis, #0969da); }
-.fukk-specs-empty { margin: 12px; color: var(--fgColor-muted, #848d97); font-size: 13px; }
-.fukk-specs-empty button { margin-top: 8px; display: block; cursor: pointer; }
+.github-pr-file-filter-fallback[aria-pressed="true"] { border-color: var(--borderColor-accent-emphasis, #0969da); }
+.github-pr-file-filter-empty { margin: 12px; color: var(--fgColor-muted, #848d97); font-size: 13px; }
+.github-pr-file-filter-empty button { margin-top: 8px; display: block; cursor: pointer; }

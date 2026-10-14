@@ -1,7 +1,7 @@
 (() => {
   'use strict';
-  const { PRESETS, DEFAULT_SETTINGS, normalizeSettings, validateSettings, createMatcher } = globalThis.FukkSpecs;
-  const { t, translate } = globalThis.FukkSpecsI18n;
+  const { PRESETS, DEFAULT_SETTINGS, normalizeSettings, validateSettings, createMatcher } = globalThis.GitHubPrFileFilter;
+  const { t, translate } = globalThis.GitHubPrFileFilterI18n;
   const byId = id => document.getElementById(id);
   const fields = ['enabled', 'hide-tests', 'hide-in-tree', 'hide-in-diff', 'excluded-extensions', 'exclude-patterns', 'include-patterns', 'case-sensitive', 'language'];
   let dirty = false;
@@ -53,7 +53,7 @@
         label.querySelector(`.preset-${part}`).textContent = translated === key ? preset[part] : translated;
       }
     });
-    document.title = `GitHub Test File Filter — ${t('settings', currentLanguage)}`;
+    document.title = `GitHub PR File Filter — ${t('settings', currentLanguage)}`;
     status(statusMessage, statusVariables, statusError);
   }
 
@@ -128,7 +128,7 @@
     if (errors.length) { status('exportError', { error: errors.join('\n') }, true); return; }
     const blob = new Blob([JSON.stringify({ version: 1, hideTests: draft.hideTests, settings: normalizeSettings(draft.settings) }, null, 2) + '\n'], { type: 'application/json' });
     const url = URL.createObjectURL(blob); const link = document.createElement('a');
-    link.href = url; link.download = 'github-test-file-filter-settings.json'; link.click();
+    link.href = url; link.download = 'github-pr-file-filter-settings.json'; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
 

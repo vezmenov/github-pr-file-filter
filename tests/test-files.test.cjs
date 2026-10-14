@@ -8,7 +8,7 @@ function classifier() {
   const context = vm.createContext({});
   const file = path.join(__dirname, '../extension/test-files.js');
   if (fs.existsSync(file)) vm.runInContext(fs.readFileSync(file, 'utf8'), context);
-  return context.FukkSpecs?.isTestFile ?? (() => false);
+  return context.GitHubPrFileFilter?.isTestFile ?? (() => false);
 }
 
 const shouldHide = [

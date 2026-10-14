@@ -1,9 +1,9 @@
 {
-  "name": "fukk-specs",
+  "name": "github-pr-file-filter",
   "version": "1.1.0",
   "private": true,
   "license": "MIT",
-  "repository": {"type": "git", "url": "https://github.com/vezmenov/fukk-specs.git"},
+  "repository": {"type": "git", "url": "https://github.com/vezmenov/github-pr-file-filter.git"},
   "engines": {"node": ">=26"},
   "description": "Hide test files in the GitHub pull request file tree and diff",
   "scripts": {

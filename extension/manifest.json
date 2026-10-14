@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Test File Filter",
+  "name": "GitHub PR File Filter",
   "version": "1.1.0",
   "description": "Hide tests and selected file types in GitHub PR file trees and diffs, with configurable presets, patterns, and exceptions.",
-  "homepage_url": "https://github.com/vezmenov/fukk-specs",
+  "homepage_url": "https://github.com/vezmenov/github-pr-file-filter",
   "permissions": ["storage"],
   "background": {"service_worker": "background.js"},
-  "action": {"default_popup": "popup.html", "default_title": "GitHub Test File Filter"},
+  "action": {"default_popup": "popup.html", "default_title": "GitHub PR File Filter"},
   "options_ui": {"page": "options.html", "open_in_tab": true},
   "icons": {"16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
   "content_scripts": [{

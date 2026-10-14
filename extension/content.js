@@ -1,12 +1,12 @@
 (() => {
   'use strict';
-  if (globalThis.__fukkSpecsLoaded) return;
-  globalThis.__fukkSpecsLoaded = true;
+  if (globalThis.__githubPrFileFilterLoaded) return;
+  globalThis.__githubPrFileFilterLoaded = true;
 
-  const hiddenAttribute = 'data-fukk-specs-hidden';
-  const diffAttribute = 'data-fukk-specs-diff';
-  const ownedAttribute = 'data-fukk-specs-owned';
-  const { DEFAULT_SETTINGS, normalizeSettings, createMatcher } = globalThis.FukkSpecs;
+  const hiddenAttribute = 'data-github-pr-file-filter-hidden';
+  const diffAttribute = 'data-github-pr-file-filter-diff';
+  const ownedAttribute = 'data-github-pr-file-filter-owned';
+  const { DEFAULT_SETTINGS, normalizeSettings, createMatcher } = globalThis.GitHubPrFileFilter;
   const menuBindings = new WeakSet();
   const treeBindings = new WeakSet();
   let hideTests = false;
@@ -47,7 +47,7 @@
     try { chrome.storage.local.set({settings}).catch(() => {}); } catch { /* Extension was reloaded. */ }
   }
 
-  function text(key) { return globalThis.FukkSpecsI18n.t(key, settings.language); }
+  function text(key) { return globalThis.GitHubPrFileFilterI18n.t(key, settings.language); }
 
   function openSettings() {
     try { chrome.runtime.sendMessage({type: 'OPEN_OPTIONS'}).catch(() => {}); } catch { /* Extension was reloaded. */ }
@@ -165,7 +165,7 @@
     if (tree.contains(document.activeElement) && document.activeElement.closest(`[${hiddenAttribute}]`)) {
       const first = rows.find(visible);
       if (first) focusRow(first);
-      else document.querySelector('[data-fukk-specs-toggle], [data-fukk-specs-fallback]')?.focus();
+      else document.querySelector('[data-github-pr-file-filter-toggle], [data-github-pr-file-filter-fallback]')?.focus();
     }
     if (settings.enabled && settings.hideInTree) {
       const stops = [...tree.querySelectorAll('[tabindex="0"]')];
@@ -175,11 +175,11 @@
         if (first) focusTarget(first).setAttribute('tabindex', '0');
       }
     }
-    const previous = tree.parentElement.querySelector(':scope > [data-fukk-specs-empty]');
+    const previous = tree.parentElement.querySelector(':scope > [data-github-pr-file-filter-empty]');
     const allHidden = rows.length > 0 && rows.filter(row => !row.parentElement.closest('[role="treeitem"]')).every(row => row.hasAttribute(hiddenAttribute));
     if (!settings.enabled || !settings.hideInTree || !allHidden) { previous?.remove(); return; }
     const message = previous || document.createElement('div');
-    message.className = 'fukk-specs-empty'; message.setAttribute('data-fukk-specs-empty', ''); message.setAttribute(ownedAttribute, '');
+    message.className = 'github-pr-file-filter-empty'; message.setAttribute('data-github-pr-file-filter-empty', ''); message.setAttribute(ownedAttribute, '');
     message.setAttribute('role', 'status'); message.textContent = text('allHidden');
     const restore = document.createElement('button'); restore.type = 'button'; restore.textContent = text('disableFilter');
     restore.addEventListener('click', () => setEnabled(false)); message.append(restore); if (!previous) tree.after(message);
@@ -240,9 +240,9 @@
       block.toggleAttribute(diffAttribute, hide);
     }
     if (moveFocus) {
-      const target = [...document.querySelectorAll('[data-fukk-specs-toggle], [data-fukk-specs-fallback], input')]
-        .find(element => visible(element) && (element.hasAttribute('data-fukk-specs-toggle')
-          || element.hasAttribute('data-fukk-specs-fallback') || /^Filter files/.test(element.getAttribute('placeholder') || '')));
+      const target = [...document.querySelectorAll('[data-github-pr-file-filter-toggle], [data-github-pr-file-filter-fallback], input')]
+        .find(element => visible(element) && (element.hasAttribute('data-github-pr-file-filter-toggle')
+          || element.hasAttribute('data-github-pr-file-filter-fallback') || /^Filter files/.test(element.getAttribute('placeholder') || '')));
       if (target) target.focus();
       else focused?.blur();
     }
@@ -257,8 +257,8 @@
     if (menuBindings.has(menu)) return;
     menuBindings.add(menu);
     menu.addEventListener('keydown', event => {
-      if (!activePage() || !menu.querySelector('[data-fukk-specs-toggle]')) return;
-      const toggle = event.target.closest('[data-fukk-specs-toggle], [data-fukk-specs-enable], [data-fukk-specs-settings]');
+      if (!activePage() || !menu.querySelector('[data-github-pr-file-filter-toggle]')) return;
+      const toggle = event.target.closest('[data-github-pr-file-filter-toggle], [data-github-pr-file-filter-enable], [data-github-pr-file-filter-settings]');
       if (toggle && [' ', 'Enter'].includes(event.key)) {
         event.preventDefault(); event.stopImmediatePropagation(); toggle.click(); return;
       }
@@ -273,46 +273,46 @@
   }
 
   function injectMenu(menu) {
-    let toggle = menu.querySelector('[data-fukk-specs-toggle]');
+    let toggle = menu.querySelector('[data-github-pr-file-filter-toggle]');
     if (!toggle) {
       const container = document.createElement(menu.tagName === 'UL' ? 'li' : 'div');
-      container.setAttribute(ownedAttribute, ''); container.setAttribute('role', 'none'); container.className = 'fukk-specs-separator';
-      toggle = document.createElement('button'); toggle.type = 'button'; toggle.className = 'fukk-specs-option';
-      toggle.setAttribute('data-fukk-specs-toggle', ''); toggle.setAttribute('role', menu.getAttribute('role') === 'listbox' ? 'option' : 'menuitemcheckbox');
+      container.setAttribute(ownedAttribute, ''); container.setAttribute('role', 'none'); container.className = 'github-pr-file-filter-separator';
+      toggle = document.createElement('button'); toggle.type = 'button'; toggle.className = 'github-pr-file-filter-option';
+      toggle.setAttribute('data-github-pr-file-filter-toggle', ''); toggle.setAttribute('role', menu.getAttribute('role') === 'listbox' ? 'option' : 'menuitemcheckbox');
       toggle.setAttribute('tabindex', '-1');
-      const check = document.createElement('span'); check.className = 'fukk-specs-check'; check.setAttribute('aria-hidden', 'true'); check.textContent = '✓';
-      const label = document.createElement('span'); label.setAttribute('data-fukk-specs-label', ''); toggle.append(check, label);
-      const enable = document.createElement('button'); enable.type = 'button'; enable.className = 'fukk-specs-option';
-      enable.setAttribute('data-fukk-specs-enable', ''); enable.setAttribute('role', toggle.getAttribute('role')); enable.tabIndex = -1;
-      const enableCheck = check.cloneNode(true); const enableLabel = document.createElement('span'); enableLabel.setAttribute('data-fukk-specs-label', ''); enable.append(enableCheck, enableLabel);
+      const check = document.createElement('span'); check.className = 'github-pr-file-filter-check'; check.setAttribute('aria-hidden', 'true'); check.textContent = '✓';
+      const label = document.createElement('span'); label.setAttribute('data-github-pr-file-filter-label', ''); toggle.append(check, label);
+      const enable = document.createElement('button'); enable.type = 'button'; enable.className = 'github-pr-file-filter-option';
+      enable.setAttribute('data-github-pr-file-filter-enable', ''); enable.setAttribute('role', toggle.getAttribute('role')); enable.tabIndex = -1;
+      const enableCheck = check.cloneNode(true); const enableLabel = document.createElement('span'); enableLabel.setAttribute('data-github-pr-file-filter-label', ''); enable.append(enableCheck, enableLabel);
       enable.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setEnabled(!settings.enabled); });
-      const options = document.createElement('button'); options.type = 'button'; options.className = 'fukk-specs-option'; options.tabIndex = -1;
-      options.setAttribute('data-fukk-specs-settings', ''); options.setAttribute('role', menu.getAttribute('role') === 'listbox' ? 'option' : 'menuitem');
+      const options = document.createElement('button'); options.type = 'button'; options.className = 'github-pr-file-filter-option'; options.tabIndex = -1;
+      options.setAttribute('data-github-pr-file-filter-settings', ''); options.setAttribute('role', menu.getAttribute('role') === 'listbox' ? 'option' : 'menuitem');
       options.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); openSettings(); });
       container.append(enable, toggle, options);
       toggle.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); setHideTests(!hideTests); });
       (menu.querySelector('.SelectMenu-modal') || menu).append(container);
     }
-    toggle.querySelector('[data-fukk-specs-label]').textContent = text('hideTests');
+    toggle.querySelector('[data-github-pr-file-filter-label]').textContent = text('hideTests');
     toggle.setAttribute('aria-checked', String(hideTests));
     if (toggle.getAttribute('role') === 'option') toggle.setAttribute('aria-selected', String(hideTests));
-    const enable = menu.querySelector('[data-fukk-specs-enable]');
-    enable.querySelector('[data-fukk-specs-label]').textContent = text('enableFilter');
+    const enable = menu.querySelector('[data-github-pr-file-filter-enable]');
+    enable.querySelector('[data-github-pr-file-filter-label]').textContent = text('enableFilter');
     enable.setAttribute('aria-checked', String(settings.enabled));
     if (enable.getAttribute('role') === 'option') enable.setAttribute('aria-selected', String(settings.enabled));
-    menu.querySelector('[data-fukk-specs-settings]').textContent = text('settings');
+    menu.querySelector('[data-github-pr-file-filter-settings]').textContent = text('settings');
     bindMenu(menu);
   }
 
   function injectFallback(menus) {
     const search = [...document.querySelectorAll('input')].find(input => /^Filter files(?:…|\.\.\.)?$/.test(input.getAttribute('placeholder') || input.getAttribute('aria-label') || ''));
-    let fallback = document.querySelector('[data-fukk-specs-fallback]');
+    let fallback = document.querySelector('[data-github-pr-file-filter-fallback]');
     // Once the native menu has been identified, keep all controls inside it.
     if (menus.length) { fallback?.remove(); return; }
     if (!search) return;
     if (!fallback) {
-      fallback = document.createElement('button'); fallback.type = 'button'; fallback.className = 'fukk-specs-fallback';
-      fallback.setAttribute('data-fukk-specs-fallback', ''); fallback.setAttribute(ownedAttribute, '');
+      fallback = document.createElement('button'); fallback.type = 'button'; fallback.className = 'github-pr-file-filter-fallback';
+      fallback.setAttribute('data-github-pr-file-filter-fallback', ''); fallback.setAttribute(ownedAttribute, '');
       fallback.addEventListener('click', () => setHideTests(!hideTests));
       (search.closest('label')?.parentElement || search.parentElement).append(fallback);
     }

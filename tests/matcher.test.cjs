@@ -6,7 +6,7 @@ const vm = require('node:vm');
 
 const context = vm.createContext({});
 vm.runInContext(fs.readFileSync(path.join(__dirname, '../extension/test-files.js'), 'utf8'), context);
-const api = context.FukkSpecs;
+const api = context.GitHubPrFileFilter;
 const plain = value => JSON.parse(JSON.stringify(value));
 const config = changes => ({ ...plain(api.DEFAULT_SETTINGS), ...changes });
 

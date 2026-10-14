@@ -1,12 +1,12 @@
-# Fukk Specs — фильтр файлов GitHub PR
+# GitHub PR File Filter — фильтр файлов GitHub PR
 
-[English](../README.md) · [Релизы](https://github.com/vezmenov/fukk-specs/releases) · [Сообщить об ошибке](https://github.com/vezmenov/fukk-specs/issues)
+[English](../README.md) · [Релизы](https://github.com/vezmenov/github-pr-file-filter/releases) · [Сообщить об ошибке](https://github.com/vezmenov/github-pr-file-filter/issues)
 
 Расширение скрывает тестовые файлы и выбранные типы файлов в дереве GitHub PR и в карточках diff справа. Скрываются целые карточки, включая свёрнутые и загруженные позже. Выключение фильтра возвращает файлы; Viewed, комментарии и черновики ревью не меняются.
 
 ## Установка
 
-1. Скачайте `fukk-specs-<версия>.zip` из [релизов](https://github.com/vezmenov/fukk-specs/releases) и распакуйте.
+1. Скачайте `github-pr-file-filter-<версия>.zip` из [релизов](https://github.com/vezmenov/github-pr-file-filter/releases) и распакуйте.
 2. Откройте `chrome://extensions` или `edge://extensions`, включите **Режим разработчика**.
 3. Нажмите **Загрузить распакованное расширение** и выберите каталог с `manifest.json`. При установке из исходников выберите `extension/`.
 4. Перезагрузите страницу PR, откройте меню рядом с **Filter files…** и включите **Скрыть тесты**.
@@ -75,6 +75,6 @@ npm run package
 
 Unit/DOM-тесты проверяют правила и работу с разметкой. Browser smoke загружает настоящий Manifest V3 в отдельный временный профиль Chromium и проверяет контролируемую страницу, сохранение настроек, обмен между вкладками и переходы. Эта проверка не использует пользовательский профиль и не подтверждает совместимость с любыми будущими изменениями GitHub.
 
-Упаковка создаёт `dist/fukk-specs-<версия>.zip` только из файлов `extension/`, с `manifest.json` в корне. CI выполняет те же проверки и сохраняет ZIP как артефакт.
+Упаковка создаёт `dist/github-pr-file-filter-<версия>.zip` только из файлов `extension/`, с `manifest.json` в корне. CI выполняет те же проверки и сохраняет ZIP как артефакт.
 
 [Правила участия](../CONTRIBUTING.md) · [Лицензия MIT](../LICENSE). Независимый проект, не связан с GitHub и Google.

@@ -1,6 +1,6 @@
-# Fukk Specs — GitHub Test File Filter
+# GitHub PR File Filter
 
-[Русская документация](docs/README.ru.md) · [Releases](https://github.com/vezmenov/fukk-specs/releases) · [Report an issue](https://github.com/vezmenov/fukk-specs/issues)
+[Русская документация](docs/README.ru.md) · [Releases](https://github.com/vezmenov/github-pr-file-filter/releases) · [Report an issue](https://github.com/vezmenov/github-pr-file-filter/issues)
 
 A browser extension that hides test files and selected file types from GitHub pull request reviews. It filters both the file tree and the complete diff cards, including collapsed cards and files loaded later.
 
@@ -10,7 +10,7 @@ The **Hide tests** switch is added to GitHub's file filter menu beside **Filter 
 
 ## Install
 
-1. Download the latest `fukk-specs-<version>.zip` from [GitHub Releases](https://github.com/vezmenov/fukk-specs/releases) and extract it.
+1. Download the latest `github-pr-file-filter-<version>.zip` from [GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases) and extract it.
 2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
 3. Enable **Developer mode**, click **Load unpacked**, and select the extracted directory containing `manifest.json`. For a source checkout, select `extension/`.
 4. Reload your GitHub PR page, open the file filter menu, and enable **Hide tests**.
@@ -79,6 +79,6 @@ npm run package
 
 `npm test` checks classification, custom rules, and DOM behavior. The browser smoke test loads the real Manifest V3 package into an isolated Chromium profile and uses a controlled GitHub-shaped fixture to test filtering, persistence, cross-tab settings, and navigation. It does not use your browser profile or establish compatibility with every future GitHub UI change.
 
-`npm run package` produces `dist/fukk-specs-<version>.zip` from `extension/`, with `manifest.json` at the archive root. Source files, tests, documentation, and development dependencies are excluded from the extension package. CI runs the same checks and uploads the ZIP as a build artifact.
+`npm run package` produces `dist/github-pr-file-filter-<version>.zip` from `extension/`, with `manifest.json` at the archive root. Source files, tests, documentation, and development dependencies are excluded from the extension package. CI runs the same checks and uploads the ZIP as a build artifact.
 
 Contributions and new naming conventions are welcome; see [CONTRIBUTING](CONTRIBUTING.md). Licensed under [MIT](LICENSE). This independent project is not affiliated with GitHub or Google.

@@ -2,7 +2,7 @@
 
 Effective date: October 14, 2026
 
-This policy applies to **GitHub Test File Filter**, the open-source browser extension maintained in [vezmenov/fukk-specs](https://github.com/vezmenov/fukk-specs).
+This policy applies to **GitHub PR File Filter**, the open-source browser extension maintained in [vezmenov/github-pr-file-filter](https://github.com/vezmenov/github-pr-file-filter).
 
 ## Local processing
 
@@ -26,4 +26,4 @@ A content script is declared for `https://github.com/*` to support GitHub's navi
 
 The publisher does not receive, sell, or share extension user data. Use of information is limited to the local file filtering feature described above. Changes to this policy will be published in this repository with an updated effective date.
 
-For questions, open an issue in [the public issue tracker](https://github.com/vezmenov/fukk-specs/issues). Do not include confidential repository contents or credentials in a public issue.
+For questions, open an issue in [the public issue tracker](https://github.com/vezmenov/github-pr-file-filter/issues). Do not include confidential repository contents or credentials in a public issue.

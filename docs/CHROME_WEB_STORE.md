@@ -6,15 +6,15 @@ This document contains prepared listing text and the release checklist. It does 
 
 | Field | Value |
 | --- | --- |
-| Name | GitHub Test File Filter |
+| Name | GitHub PR File Filter |
 | Version | 1.1.0 |
 | Primary language | English |
 | Category | Developer Tools, if available in the current dashboard |
 | Price | Free |
 | Visibility | Public |
-| Homepage | `https://github.com/vezmenov/fukk-specs` |
-| Support | `https://github.com/vezmenov/fukk-specs/issues` |
-| Privacy policy | `https://github.com/vezmenov/fukk-specs/blob/main/docs/PRIVACY.md` |
+| Homepage | `https://github.com/vezmenov/github-pr-file-filter` |
+| Support | `https://github.com/vezmenov/github-pr-file-filter/issues` |
+| Privacy policy | `https://github.com/vezmenov/github-pr-file-filter/blob/main/docs/PRIVACY.md` |
 
 ### Short description
 
@@ -47,7 +47,7 @@ Filtering is reversible. It does not change Viewed markers, comments, or review 
 
 Privacy: settings stay in your browser profile. No analytics, telemetry, account credentials, remote code, or external requests. File paths are processed locally and are not stored or sent anywhere. The storage permission saves your preferences, and GitHub site access lets the filter follow in-page navigation.
 
-Free and open source under the MIT license. Source code and support: https://github.com/vezmenov/fukk-specs
+Free and open source under the MIT license. Source code and support: https://github.com/vezmenov/github-pr-file-filter
 
 This independent extension is not affiliated with GitHub or Google.
 ```
@@ -94,7 +94,7 @@ Only the icon, small promotional image, and a screenshot are mandatory; a promot
 ## Release checklist
 
 1. Run `npm ci`, `npm test`, `npm run test:browser`, and `npm run package`; verify the unpacked extension on a real GitHub PR. Fixture tests and real GitHub checks are separate evidence.
-2. Inspect `dist/fukk-specs-1.1.0.zip`: `manifest.json` must be at its root, version/name/description must be correct, and only extension runtime assets must be present.
+2. Inspect `dist/github-pr-file-filter-1.1.0.zip`: `manifest.json` must be at its root, version/name/description must be correct, and only extension runtime assets must be present.
 3. Confirm the public source repository and privacy URL are accessible. Use generic demo content for store screenshots.
 4. Sign in to the intended publisher account. New publishers must register, accept the developer terms, and pay a one-time registration fee before submission. The account owner must handle registration, agreements, and payment. [Registration](https://developer.chrome.com/docs/webstore/register/).
 5. Add a new item, upload the ZIP, complete listing, privacy, distribution, and any test-instruction fields. Select free public distribution in the supported regions you intend to serve.

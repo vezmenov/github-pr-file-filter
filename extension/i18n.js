@@ -3,7 +3,7 @@
 
   const messages = {
     en: {
-      appName: 'GitHub Test File Filter',
+      appName: 'GitHub PR File Filter',
       settings: 'Settings',
       hideTests: 'Hide test files',
       hideTestsDescription: 'Recognize tests using the selected presets.',
@@ -76,7 +76,7 @@
       filterSummary: 'Active rules',
     },
     ru: {
-      appName: 'GitHub Test File Filter',
+      appName: 'GitHub PR File Filter',
       settings: 'Настройки',
       hideTests: 'Скрыть тесты',
       hideTestsDescription: 'Распознавать тесты по выбранным пресетам.',
@@ -213,5 +213,5 @@
     if (html) html.lang = language(value);
   }
 
-  globalThis.FukkSpecsI18n = Object.freeze({ language, t, translate });
+  globalThis.GitHubPrFileFilterI18n = Object.freeze({ language, t, translate });
 })();

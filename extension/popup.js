@@ -1,7 +1,7 @@
 (() => {
   'use strict';
-  const { DEFAULT_SETTINGS, normalizeSettings } = globalThis.FukkSpecs;
-  const { t, translate } = globalThis.FukkSpecsI18n;
+  const { DEFAULT_SETTINGS, normalizeSettings } = globalThis.GitHubPrFileFilter;
+  const { t, translate } = globalThis.GitHubPrFileFilterI18n;
   const byId = id => document.getElementById(id);
   let state = { hideTests: false, settings: normalizeSettings(DEFAULT_SETTINGS) };
 
