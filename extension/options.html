@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Test File Filter — Settings</title>
+  <link rel="stylesheet" href="options.css">
+  <script src="test-files.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="options.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">GitHub Test File Filter <span class="tag">1.1</span></div>
+      <h1 data-i18n="settingsTitle">File filtering settings</h1>
+      <p data-i18n="settingsIntro"></p>
+    </header>
+    <form id="settings-form">
+      <section aria-labelledby="behavior-title">
+        <h2 id="behavior-title" data-i18n="behavior">Where to filter</h2>
+        <label class="check prominent"><input id="enabled" type="checkbox"><span data-i18n="enableFilter">Enable file filtering</span></label>
+        <label class="check"><input id="hide-tests" type="checkbox"><span data-i18n="hideTests">Hide test files</span></label>
+        <div class="inline-checks">
+          <label class="check"><input id="hide-in-tree" type="checkbox"><span data-i18n="tree">File tree</span></label>
+          <label class="check"><input id="hide-in-diff" type="checkbox"><span data-i18n="diff">Diff panel</span></label>
+        </div>
+        <p class="help" data-i18n="behaviorHelp"></p>
+      </section>
+      <section aria-labelledby="presets-title">
+        <div class="section-heading">
+          <h2 id="presets-title" data-i18n="presets">Test presets</h2>
+          <div class="inline-actions"><button id="select-all" type="button" class="text-button" data-i18n="selectAll">Select all</button><button id="clear-all" type="button" class="text-button" data-i18n="clearAll">Clear all</button></div>
+        </div>
+        <p class="help" data-i18n="presetsHelp"></p>
+        <div id="preset-list" class="preset-grid"></div>
+      </section>
+      <section aria-labelledby="rules-title">
+        <h2 id="rules-title" data-i18n="rules">Custom file rules</h2>
+        <p class="help" data-i18n="rulesHelp"></p>
+        <div class="field">
+          <label for="excluded-extensions" data-i18n="extensions">Hide file extensions</label>
+          <p id="extensions-help" class="help" data-i18n="extensionsHelp"></p>
+          <textarea id="excluded-extensions" rows="4" placeholder=".snap&#10;.d.ts&#10;.map" aria-describedby="extensions-help extension-limit" spellcheck="false"></textarea>
+          <p id="extension-limit" class="limit" data-i18n="extensionLimit"></p>
+        </div>
+        <p id="globs-help" class="help" data-i18n="globsHelp"></p>
+        <div class="rules-grid">
+          <div class="field">
+            <label for="exclude-patterns" data-i18n="exclusions">Hide paths matching these patterns</label>
+            <p class="help" data-i18n="exclusionExample"></p>
+            <textarea id="exclude-patterns" rows="6" placeholder="**/generated/**&#10;*.snap" aria-describedby="globs-help pattern-limit" spellcheck="false"></textarea>
+          </div>
+          <div class="field">
+            <label for="include-patterns" data-i18n="inclusions">Always show paths matching these patterns</label>
+            <p class="help" data-i18n="inclusionExample"></p>
+            <textarea id="include-patterns" rows="6" placeholder="src/important.test.ts&#10;**/fixtures/keep.json" aria-describedby="globs-help pattern-limit" spellcheck="false"></textarea>
+          </div>
+        </div>
+        <p id="pattern-limit" class="limit" data-i18n="patternLimit"></p>
+        <label class="check"><input id="case-sensitive" type="checkbox"><span data-i18n="caseSensitive">Match paths with case sensitivity</span></label>
+      </section>
+      <section aria-labelledby="preview-title">
+        <h2 id="preview-title" data-i18n="preview">Try a file path</h2>
+        <p id="preview-help" class="help" data-i18n="previewHelp"></p>
+        <input id="preview-path" type="text" data-i18n-placeholder="previewPlaceholder" placeholder="src/components/button.test.tsx" aria-describedby="preview-help preview-result" spellcheck="false" autocomplete="off">
+        <p id="preview-result" class="preview-result" role="status" aria-live="polite"></p>
+      </section>
+      <section aria-labelledby="preferences-title">
+        <h2 id="preferences-title" data-i18n="preferences">Preferences</h2>
+        <div class="field language-field"><label for="language" data-i18n="language">Language</label><select id="language"><option value="auto" data-i18n="autoLanguage">Browser language</option><option value="en">English</option><option value="ru">Русский</option></select></div>
+        <div class="inline-actions"><button id="export-settings" type="button" data-i18n="export">Export JSON</button><button id="import-settings" type="button" data-i18n="import">Import JSON</button><button id="reset-settings" type="button" data-i18n="reset">Reset to defaults</button></div>
+        <input id="import-file" class="file-input" type="file" accept="application/json,.json" tabindex="-1">
+        <p class="help" data-i18n="transferHelp"></p>
+        <p class="help" data-i18n="storageHelp"></p>
+      </section>
+      <div class="save-bar">
+        <div id="status" role="status" aria-live="polite"></div>
+        <button id="reload-saved" type="button" hidden data-i18n="reloadSaved">Load saved settings</button>
+        <button type="submit" class="primary" data-i18n="save">Save settings</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Test File Filter</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="test-files.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><h1>GitHub Test File Filter</h1><p data-i18n="popupHelp">For GitHub pull request file trees and diffs.</p></header>
+    <label class="check"><input id="enabled" type="checkbox"><span data-i18n="enableFilter">Enable file filtering</span></label>
+    <label class="check"><input id="hide-tests" type="checkbox"><span data-i18n="hideTests">Hide test files</span></label>
+    <div class="summary" aria-label="Active rules"><p id="preset-count"></p><p id="rule-count"></p><p id="targets"></p></div>
+    <button id="open-settings" type="button" data-i18n="openSettings">Open detailed settings</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

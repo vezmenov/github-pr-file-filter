@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>GitHub PR fixture</title>
+<style>
+body{margin:0;background:#0d1117;color:#e6edf3;font:14px system-ui;padding:32px}button{color:inherit;background:#212830;border:1px solid #3d444d;border-radius:6px;padding:8px;cursor:pointer}h1{font-size:22px}main{display:flex;gap:32px;margin-top:24px}aside{width:420px}input{background:transparent;border:1px solid #3d444d;color:inherit;padding:10px;font:inherit;width:270px;border-radius:6px}ul{list-style:none;padding:0 0 0 16px}li{margin:6px 0;padding:6px;border-radius:4px}a{color:inherit;text-decoration:none}[role=treeitem]:focus-visible{outline:2px solid #4493f8}#filter-bar{display:flex;align-items:center;position:relative;gap:8px}#filter-menu{position:absolute;left:330px;top:44px;width:230px;background:#010409;border:1px solid #3d444d;border-radius:12px;padding:8px;z-index:5;box-shadow:0 8px 24px #0005}#filter-menu ul{padding:0}#filter-menu [role=menuitemcheckbox]{padding:10px;cursor:pointer}#filter-menu [role=menuitemcheckbox]:focus{outline:2px solid #4493f8}article{flex:1;background:#151b23;border:1px solid #3d444d;padding:20px;border-radius:6px}pre{line-height:1.8}.muted{color:#9198a1}
+</style>
+<h1>Files changed <span class="muted">— controlled GitHub DOM fixture</span></h1>
+<nav><a id="conversation" href="/owner/repo/pull/1">Conversation</a> · <a id="changes" href="/owner/repo/pull/1/changes">Files changed</a></nav>
+<main><aside><div id="filter-bar"><input placeholder="Filter files…"><button id="filter-trigger" aria-label="Filter options" aria-expanded="false">☰</button></div>
+<ul role="tree" aria-label="File Tree">
+<li id="src" class="PRIVATE_TreeView-item" role="treeitem" tabindex="0" aria-expanded="true" aria-labelledby="src-label"><div id="src-label">src</div><ul role="group" aria-label="src">
+<li id="src/app/billing.service.spec.ts" class="PRIVATE_TreeView-item" role="treeitem" tabindex="-1" aria-label="billing.service.spec.ts"><div><a href="#diff-test" role="presentation" tabindex="-1">billing.service.spec.ts</a></div></li>
+<li id="src/app/billing.service.ts" class="PRIVATE_TreeView-item" role="treeitem" tabindex="-1" aria-label="billing.service.ts"><div><a href="#diff-prod" role="presentation" tabindex="-1">billing.service.ts</a></div></li>
+<li id="src/app/error.service.ts" class="PRIVATE_TreeView-item" role="treeitem" tabindex="-1" aria-label="error.service.ts"><div><a href="#diff-errors" role="presentation" tabindex="-1">error.service.ts</a></div></li>
+<li id="src/app/__tests__" class="PRIVATE_TreeView-item" role="treeitem" tabindex="-1" aria-expanded="true" aria-label="__tests__"><div>__tests__</div><ul role="group">
+<li id="src/app/__tests__/helper.ts" class="PRIVATE_TreeView-item" role="treeitem" tabindex="-1" aria-label="helper.ts"><div><a role="presentation" tabindex="-1" href="#diff-helper">helper.ts</a></div></li>
+</ul></li></ul></li></ul></aside>
+<section data-testid="progressive-diffs-list"><div id="diff-test-wrapper" style="content-visibility:auto;contain-intrinsic-size:auto 420px"><article id="diff-test" role="region" aria-labelledby="fixture-test-heading"><h3 id="fixture-test-heading"><a href="#diff-test">src/app/billing.service.spec.ts</a></h3><pre>describe('Billing', () =&gt; {
+  it('keeps the test diff available', () =&gt; {
+    expect(balance).toBe(100);
+  });
+});</pre></article></div><div id="diff-prod-wrapper"><article id="diff-prod" role="region" aria-labelledby="fixture-prod-heading"><h3 id="fixture-prod-heading"><a href="#diff-prod">src/app/billing.service.ts</a></h3><pre>export const balance = 100;</pre></article></div></section></main>
+<script>
+const trigger = document.getElementById('filter-trigger');
+trigger.addEventListener('click', () => {
+  const existing = document.getElementById('filter-menu');
+  trigger.setAttribute('aria-expanded', existing ? 'false' : 'true');
+  if (existing) { existing.remove(); return; }
+  const menu = document.createElement('ul'); menu.id = 'filter-menu'; menu.setAttribute('role', 'menu');
+  menu.innerHTML = '<li role="none"><div role="presentation" aria-hidden="true" data-component="GroupHeadingWrap"><span>File extensions</span></div><ul role="group" aria-label="File extensions"><li role="menuitemcheckbox" tabindex="0" aria-checked="true">.ts</li></ul></li><li role="none"><ul role="group" aria-label="More"><li role="menuitemcheckbox" tabindex="-1" aria-checked="true">Viewed files</li></ul></li>';
+  document.getElementById('filter-bar').append(menu);
+});
+document.addEventListener('keydown', event => { if (event.key === 'Escape') { document.getElementById('filter-menu')?.remove(); trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); } });
+for (const id of ['conversation', 'changes']) document.getElementById(id).addEventListener('click', event => { event.preventDefault(); history.pushState({}, '', event.currentTarget.href); });
+</script></html>
