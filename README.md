@@ -63,7 +63,7 @@ Expanded folders containing only hidden entries are hidden too. Collapsed folder
 
 ## Privacy and permissions
 
-The only extension API permission is `storage`, used for local preferences. A content script is limited to `https://github.com/*` so it can follow GitHub's in-page navigation; filtering activates only on PR file review pages. No analytics, network requests, remote code, or account credentials are used. File paths are inspected in memory to decide which rows to hide; they are not stored or sent anywhere. See [Privacy](docs/PRIVACY.md).
+The only extension API permission is `storage`, used for local preferences. A content script is limited to `https://github.com/*` so it can follow GitHub's in-page navigation; filtering activates only on PR file review pages. The extension processes website content locally: rendered file names, repository-relative paths, and DOM metadata. It checks the current URL path to decide when to activate. Extracted page paths are not saved or transmitted; custom patterns you enter are stored as local preferences. No analytics, network requests, remote code, account credentials, or browser-history collection are used. See [Privacy](docs/PRIVACY.md).
 
 ## Development
 

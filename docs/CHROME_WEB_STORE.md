@@ -45,7 +45,7 @@ Recognition uses filenames and paths, not source code. Add custom patterns for u
 
 Filtering is reversible. It does not change Viewed markers, comments, or review drafts. Works on github.com pull request /files and /changes pages; GitHub Enterprise hosts are not supported.
 
-Privacy: settings stay in your browser profile. No analytics, telemetry, account credentials, remote code, or external requests. File paths are processed locally and are not stored or sent anywhere. The storage permission saves your preferences, and GitHub site access lets the filter follow in-page navigation.
+Privacy: the extension processes website content locally, including rendered file names, repository-relative paths, and DOM metadata, to apply the filter. It checks the current GitHub URL path only to activate on PR file pages. Extracted page paths are not saved or transmitted; custom patterns you enter are saved as local preferences. Settings stay in your browser profile. No analytics, telemetry, account credentials, remote code, external requests, or browser-history collection. The storage permission saves your preferences, and GitHub site access lets the filter follow in-page navigation.
 
 Free and open source under the MIT license. Source code and support: https://github.com/vezmenov/github-pr-file-filter
 
@@ -76,7 +76,9 @@ The content script runs on https://github.com/* so it can recognize navigation i
 
 **Remote code:** No. All JavaScript and styles are bundled in the uploaded package. No remotely hosted code is executed.
 
-**Data collection:** No user data is collected or transmitted by the extension. File paths are inspected transiently on the device to provide the requested filter. Local preferences and user-initiated settings export are described in the privacy policy. Do not claim the extension collects browsing history or website content for the publisher.
+**Data usage — Website content:** Select **Website content** because the extension processes rendered file names, repository-relative paths, and DOM metadata locally to filter GitHub reviews. Page data is not transmitted to the publisher or third parties and extracted paths are not retained beyond local page processing. User-entered custom patterns are stored only as preferences. Local processing must still be disclosed; the Chrome [User Data FAQ, question 3](https://developer.chrome.com/docs/webstore/program-policies/user-data-faq) explicitly includes data processed or stored on the device.
+
+**Other categories:** The extension does not harvest personally identifiable information, health information, financial/payment information, authentication information, personal communications, location, or user activity tracking. It checks the current page's URL path locally for activation; it does not use the browser history API or store a list of visited websites. Local preferences and user-initiated settings import/export are described in the privacy policy. Do not describe this implementation as handling no user data: website content is processed locally.
 
 **Data-use certifications:** The implementation does not sell or transfer user data, does not use it for unrelated purposes, and does not use it for creditworthiness or lending decisions. Complete the dashboard's certifications only after checking that their actual wording matches these practices.
 
