@@ -4,7 +4,9 @@ This document contains listing text, the release checklist, and a dated submissi
 
 ## Submission status
 
-As of **October 14, 2026 (Europe/Moscow)**, version **1.1.0** has been submitted to Chrome Web Store and is **pending review**. Submission was confirmed by the publisher console. Automatic publication after approval is enabled. This status does not establish approval or a live store listing; the installation link will be added once publication is confirmed.
+As of **October 16, 2026 (Europe/Moscow)**, version **1.1.0** has been resubmitted to Chrome Web Store and is **pending review**. Resubmission and the pending status were confirmed in the publisher console. Automatic publication after approval is enabled. This status does not establish approval or a live store listing; the installation link will be added once publication is confirmed.
+
+The listing was rejected for keyword stuffing on October 15 (**Yellow Argon**). On October 16, the detailed description was shortened and corrected, its saved value was verified after reloading, and the same version was resubmitted. The runtime, package version, and functionality remain unchanged.
 
 The source code and extension ZIP are already public in [GitHub release v1.1.0](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0).
 
@@ -33,29 +35,19 @@ This is 122 characters, within the manifest description's 132-character limit. K
 ### Detailed description
 
 ```text
-Hide test files and selected file types from GitHub pull request reviews, in both the file tree and the diff cards.
+Hide test files in the tree and diff view of GitHub pull requests. Open the menu beside "Filter files" and enable "Hide test files".
 
-Use the Hide tests switch in GitHub's file filter menu beside Filter files. Open Settings to choose the naming conventions that apply to your project, hide extra file types, or keep exceptions visible.
+Settings let you choose naming presets, hide extensions or path patterns, and add exceptions. Preview a path before saving. Rules can apply to either panel or both, and can be imported or exported as JSON.
 
-Features:
-• Hide complete diff cards, including collapsed cards and files loaded later.
-• Select test presets for JavaScript/TypeScript, browser tests, Python, Go, Ruby, JVM languages, .NET, PHP, Rust, Dart/Flutter, Swift, C/C++, and other language conventions.
-• Hide extensions such as .snap, .map, .d.ts, and .min.js.
-• Add file and directory patterns using *, **, and ?.
-• Keep matching files visible with always-show exceptions.
-• Apply rules to the tree, the diff, or both.
-• Preview paths and import/export settings as JSON.
-• English and Russian interface.
+Turn off "Enable file filtering" to restore entries hidden by the extension. Existing platform filters still apply. Viewed markers, comments and review drafts are preserved.
 
-Recognition uses filenames and paths, not source code. Add custom patterns for unusual naming conventions. Tests embedded in production files cannot be detected by filename alone.
+Recognition uses names and paths. It does not detect tests embedded in production code. Supports pull request review pages on github.com; enterprise hosts are not supported.
 
-Filtering is reversible. It does not change Viewed markers, comments, or review drafts. Works on github.com pull request /files and /changes pages; GitHub Enterprise hosts are not supported.
+Page information is processed on your device. Only preferences are saved in local browser storage. No page data or settings are sent to the publisher. No analytics or remote code.
 
-Privacy: the extension processes website content locally, including rendered file names, repository-relative paths, and DOM metadata, to apply the filter. It checks the current GitHub URL path only to activate on PR file pages. Extracted page paths are not saved or transmitted; custom patterns you enter are saved as local preferences. Settings stay in your browser profile. No analytics, telemetry, account credentials, remote code, external requests, or browser-history collection. The storage permission saves your preferences, and GitHub site access lets the filter follow in-page navigation.
+Open source. Code and support: https://github.com/vezmenov/github-pr-file-filter
 
-Free and open source under the MIT license. Source code and support: https://github.com/vezmenov/github-pr-file-filter
-
-This independent extension is not affiliated with GitHub or Google.
+Independent project, not affiliated with GitHub.
 ```
 
 ## Privacy practices fields

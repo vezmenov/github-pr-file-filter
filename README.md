@@ -10,7 +10,7 @@ The **Hide tests** switch is added to GitHub's file filter menu beside **Filter 
 
 ## Install
 
-Version [1.1.0 is available on GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0). Chrome Web Store submission status as of October 14, 2026 (Europe/Moscow): **pending review**. Automatic publication after approval is enabled; the store installation link will be added once the listing is live.
+Version [1.1.0 is available on GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0). Chrome Web Store status as of October 16, 2026 (Europe/Moscow): **resubmitted, pending review**. The listing was rejected for keyword stuffing on October 15; its description was corrected and resubmitted on October 16. Automatic publication after approval is enabled; the store installation link will be added once the listing is live.
 
 1. Download the latest `github-pr-file-filter-<version>.zip` from [GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases) and extract it.
 2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
