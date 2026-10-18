@@ -1,10 +1,12 @@
 # Chrome Web Store publishing
 
-This document contains listing text, the release checklist, and a dated submission status.
+This document contains listing text, the release checklist, and a dated publication status.
 
-## Submission status
+## Publication status
 
-As of **October 16, 2026 (Europe/Moscow)**, version **1.1.0** has been resubmitted to Chrome Web Store and is **pending review**. Resubmission and the pending status were confirmed in the publisher console. Automatic publication after approval is enabled. This status does not establish approval or a live store listing; the installation link will be added once publication is confirmed.
+As of **October 18, 2026 (Europe/Moscow)**, version **1.1.0** is **published and publicly available** in the [Chrome Web Store](https://chromewebstore.google.com/detail/github-pr-file-filter/femlegodeikdcchheikbcdnpcckdpbic). The public listing was checked without signing in and displayed **GitHub PR File Filter**, version **1.1.0**, and **Add to Chrome**.
+
+### Publication history
 
 The listing was rejected for keyword stuffing on October 15 (**Yellow Argon**). On October 16, the detailed description was shortened and corrected, its saved value was verified after reloading, and the same version was resubmitted. The runtime, package version, and functionality remain unchanged.
 
@@ -99,7 +101,7 @@ Only the icon, small promotional image, and a screenshot are mandatory; a promot
 4. Sign in to the intended publisher account. New publishers must register, accept the developer terms, and pay a one-time registration fee before submission. The account owner must handle registration, agreements, and payment. [Registration](https://developer.chrome.com/docs/webstore/register/).
 5. Add a new item, upload the ZIP, complete listing, privacy, distribution, and any test-instruction fields. Select free public distribution in the supported regions you intend to serve.
 6. Submit for review. Decide whether to publish automatically after approval. Record the item ID and review state; submission is not approval, and approval is not a live listing until published. [Publishing process](https://developer.chrome.com/docs/webstore/publish).
-7. After publication, add the verified store URL to both README files. Future uploads must use a higher extension version.
+7. Verify the public listing after publication and keep the store links in both README files current. Future uploads must use a higher extension version.
 
 ## Reviewer test instructions
 

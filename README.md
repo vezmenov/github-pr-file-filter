@@ -1,23 +1,29 @@
 # GitHub PR File Filter
 
-[Русская документация](docs/README.ru.md) · [Releases](https://github.com/vezmenov/github-pr-file-filter/releases) · [Report an issue](https://github.com/vezmenov/github-pr-file-filter/issues)
+[Chrome Web Store](https://chromewebstore.google.com/detail/github-pr-file-filter/femlegodeikdcchheikbcdnpcckdpbic) · [Русская документация](docs/README.ru.md) · [Releases](https://github.com/vezmenov/github-pr-file-filter/releases) · [Report an issue](https://github.com/vezmenov/github-pr-file-filter/issues)
 
 A browser extension that hides test files and selected file types from GitHub pull request reviews. It filters both the file tree and the complete diff cards, including collapsed cards and files loaded later.
 
 ![Native GitHub filter menu on a controlled demo](docs/assets/store-filter-1280x800.png)
 
-The **Hide tests** switch is added to GitHub's file filter menu beside **Filter files…**. Settings let you choose language presets, exclude file extensions or path patterns, and keep exceptions visible. Turning filtering off restores the files. The extension does not change Viewed markers, comments, or review drafts.
+The **Hide test files** switch is added to GitHub's file filter menu beside **Filter files…**. Settings let you choose language presets, exclude file extensions or path patterns, and keep exceptions visible. Turning filtering off restores the files. The extension does not change Viewed markers, comments, or review drafts.
 
 ## Install
 
-Version [1.1.0 is available on GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0). Chrome Web Store status as of October 16, 2026 (Europe/Moscow): **resubmitted, pending review**. The listing was rejected for keyword stuffing on October 15; its description was corrected and resubmitted on October 16. Automatic publication after approval is enabled; the store installation link will be added once the listing is live.
+1. Open [GitHub PR File Filter in the Chrome Web Store](https://chromewebstore.google.com/detail/github-pr-file-filter/femlegodeikdcchheikbcdnpcckdpbic).
+2. Click **Add to Chrome** and confirm installation.
+3. Reload your GitHub PR page, open the file filter menu beside **Filter files…**, and enable **Hide test files**.
+
+Version **1.1.0** was confirmed publicly available in the store on October 18, 2026 (Europe/Moscow).
+
+### Alternative: install an unpacked release
 
 1. Download the latest `github-pr-file-filter-<version>.zip` from [GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases) and extract it.
 2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
 3. Enable **Developer mode**, click **Load unpacked**, and select the extracted directory containing `manifest.json`. For a source checkout, select `extension/`.
-4. Reload your GitHub PR page, open the file filter menu, and enable **Hide tests**.
+4. Reload your GitHub PR page, open the file filter menu, and enable **Hide test files**.
 
-To update an unpacked installation, replace its files, click **Reload** on its extension card, then reload the PR page. Chrome Web Store listing materials and the dated submission status are in [the publishing guide](docs/CHROME_WEB_STORE.md).
+To update an unpacked installation, replace its files, click **Reload** on its extension card, then reload the PR page. Chrome Web Store listing materials and the dated publication status are in [the publishing guide](docs/CHROME_WEB_STORE.md).
 
 ## Settings
 

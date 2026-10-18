@@ -1,19 +1,25 @@
 # GitHub PR File Filter — фильтр файлов GitHub PR
 
-[English](../README.md) · [Релизы](https://github.com/vezmenov/github-pr-file-filter/releases) · [Сообщить об ошибке](https://github.com/vezmenov/github-pr-file-filter/issues)
+[Chrome Web Store](https://chromewebstore.google.com/detail/github-pr-file-filter/femlegodeikdcchheikbcdnpcckdpbic) · [English](../README.md) · [Релизы](https://github.com/vezmenov/github-pr-file-filter/releases) · [Сообщить об ошибке](https://github.com/vezmenov/github-pr-file-filter/issues)
 
 Расширение скрывает тестовые файлы и выбранные типы файлов в дереве GitHub PR и в карточках diff справа. Скрываются целые карточки, включая свёрнутые и загруженные позже. Выключение фильтра возвращает файлы; Viewed, комментарии и черновики ревью не меняются.
 
 ## Установка
 
-[Версия 1.1.0 доступна на GitHub Releases](https://github.com/vezmenov/github-pr-file-filter/releases/tag/v1.1.0). Статус Chrome Web Store на 16 октября 2026 года (Europe/Moscow): **отправлено повторно, ожидает рассмотрения**. 15 октября карточка была отклонена из-за избытка ключевых слов; 16 октября описание исправлено и отправлено повторно. Автоматическая публикация после одобрения включена; ссылка для установки из магазина будет добавлена, когда карточка станет доступна.
+1. Откройте [GitHub PR File Filter в Chrome Web Store](https://chromewebstore.google.com/detail/github-pr-file-filter/femlegodeikdcchheikbcdnpcckdpbic).
+2. Нажмите **Установить / Add to Chrome** и подтвердите установку.
+3. Перезагрузите страницу GitHub PR, откройте меню рядом с **Filter files…** и включите **Скрыть тесты**.
+
+Публичная доступность версии **1.1.0** в магазине подтверждена 18 октября 2026 года (Europe/Moscow).
+
+### Альтернатива: установка распакованного релиза
 
 1. Скачайте `github-pr-file-filter-<версия>.zip` из [релизов](https://github.com/vezmenov/github-pr-file-filter/releases) и распакуйте.
 2. Откройте `chrome://extensions` или `edge://extensions`, включите **Режим разработчика**.
 3. Нажмите **Загрузить распакованное расширение** и выберите каталог с `manifest.json`. При установке из исходников выберите `extension/`.
 4. Перезагрузите страницу PR, откройте меню рядом с **Filter files…** и включите **Скрыть тесты**.
 
-При обновлении замените файлы, нажмите **Перезагрузить** на карточке расширения и перезагрузите PR. Материалы Chrome Web Store и статус отправки с датой находятся в [инструкции](CHROME_WEB_STORE.md).
+При обновлении замените файлы, нажмите **Перезагрузить** на карточке расширения и перезагрузите PR. Материалы Chrome Web Store и статус публикации с датой находятся в [инструкции](CHROME_WEB_STORE.md).
 
 ## Настройки
 
